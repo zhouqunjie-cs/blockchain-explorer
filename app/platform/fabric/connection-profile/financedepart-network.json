@@ -1,0 +1,61 @@
+{
+	"name": "financedepart-network",
+	"version": "1.0.0",
+	"license": "Apache-2.0",
+	"client": {
+		"tlsEnable": true,
+		"adminCredential": {
+			"id": "exploreradmin",
+			"password": "exploreradminpw"
+		},
+		"enableAuthentication": true,
+		"organization": "FinancedepartMSP",
+		"connection": {
+			"timeout": {
+				"peer": {
+					"endorser": "300"
+				},
+				"orderer": "300"
+			}
+		}
+	},
+	"channels": {
+		"amops": {
+			"peers": {
+				"peer0.financedepart.amops.com": {}
+			},
+			"connection": {
+				"timeout": {
+					"peer": {
+						"endorser": "6000",
+						"eventHub": "6000",
+						"eventReg": "6000"
+					}
+				}
+			}
+		}
+	},
+	"organizations": {
+		"FinancedepartMSP": {
+			"mspid": "FinancedepartMSP",
+			"adminPrivateKey": {
+				"path": "/home/nudt/go/src/github.com/hyperledger/amops/multiple-deployment/crypto-config/peerOrganizations/financedepart.amops.com/users/Admin@financedepart.amops.com/msp/keystore/priv_sk"
+			},
+			"peers": ["peer0.financedepart.amops.com"],
+			"signedCert": {
+				"path": "/home/nudt/go/src/github.com/hyperledger/amops/multiple-deployment/crypto-config/peerOrganizations/financedepart.amops.com/users/Admin@financedepart.amops.com/msp/signcerts/Admin@financedepart.amops.com-cert.pem"
+			}
+		}
+	},
+	"peers": {
+		"peer0.financedepart.amops.com": {
+			"tlsCACerts": {
+				"path": "/home/nudt/go/src/github.com/hyperledger/amops/multiple-deployment/crypto-config/peerOrganizations/financedepart.amops.com/users/Admin@financedepart.amops.com/tls/ca.crt"
+			},
+			"url": "grpcs://peer0.financedepart.amops.com:7051",
+			"grpcOptions": {
+				"ssl-target-name-override": "peer0.financedepart.amops.com"
+			}
+		}
+	}
+}

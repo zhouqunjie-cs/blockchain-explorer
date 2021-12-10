@@ -1,0 +1,20 @@
+{
+	"network-configs": {
+		"agridepart-network": {
+			"name": "agridepart-network",
+			"profile": "./connection-profile/agridepart-network.json",
+			"enableAuthentication": true
+		},
+		"agrimacowner-network": {
+			"name": "agrimacowner-network",
+			"profile": "./connection-profile/agrimacowner-network.json",
+			"enableAuthentication": true
+		},
+		"financedepart-network": {
+			"name": "financedepart-network",
+			"profile": "./connection-profile/financedepart-network.json",
+			"enableAuthentication": true
+		}
+	},
+	"license": "Apache-2.0"
+}

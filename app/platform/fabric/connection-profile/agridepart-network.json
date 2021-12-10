@@ -1,0 +1,61 @@
+{
+	"name": "agridepart-network",
+	"version": "1.0.0",
+	"license": "Apache-2.0",
+	"client": {
+		"tlsEnable": true,
+		"adminCredential": {
+			"id": "exploreradmin",
+			"password": "exploreradminpw"
+		},
+		"enableAuthentication": true,
+		"organization": "AgridepartMSP",
+		"connection": {
+			"timeout": {
+				"peer": {
+					"endorser": "300"
+				},
+				"orderer": "300"
+			}
+		}
+	},
+	"channels": {
+		"amops": {
+			"peers": {
+				"peer0.agridepart.amops.com": {}
+			},
+			"connection": {
+				"timeout": {
+					"peer": {
+						"endorser": "6000",
+						"eventHub": "6000",
+						"eventReg": "6000"
+					}
+				}
+			}
+		}
+	},
+	"organizations": {
+		"AgridepartMSP": {
+			"mspid": "AgridepartMSP",
+			"adminPrivateKey": {
+				"path": "/home/nudt/go/src/github.com/hyperledger/amops/multiple-deployment/crypto-config/peerOrganizations/agridepart.amops.com/users/Admin@agridepart.amops.com/msp/keystore/priv_sk"
+			},
+			"peers": ["peer0.agridepart.amops.com"],
+			"signedCert": {
+				"path": "/home/nudt/go/src/github.com/hyperledger/amops/multiple-deployment/crypto-config/peerOrganizations/agridepart.amops.com/users/Admin@agridepart.amops.com/msp/signcerts/Admin@agridepart.amops.com-cert.pem"
+			}
+		}
+	},
+	"peers": {
+		"peer0.agridepart.amops.com": {
+			"tlsCACerts": {
+				"path": "/home/nudt/go/src/github.com/hyperledger/amops/multiple-deployment/crypto-config/peerOrganizations/agridepart.amops.com/users/Admin@agridepart.amops.com/tls/ca.crt"
+			},
+			"url": "grpcs://peer0.agridepart.amops.com:7051",
+			"grpcOptions": {
+				"ssl-target-name-override": "peer0.agridepart.amops.com"
+			}
+		}
+	}
+}
