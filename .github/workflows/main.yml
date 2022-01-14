@@ -1,9 +1,10 @@
 name: Ubuntu
-on: push
+on:
+  watch:
+    types: started
 jobs:
-  build:
-    runs-on: ubuntu-20.04
+  Ubuntu:
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v1
+    - name: SSH connection to Actions
+      uses: P3TERX/debugger-action@master
